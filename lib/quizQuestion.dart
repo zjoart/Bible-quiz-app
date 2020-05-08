@@ -37,12 +37,21 @@ class Question extends StatefulWidget{
 
 class QuestionState extends State<Question> {
 
-
-  Color colortoshow = Colors.blueGrey;
+  Color colorToShow = Colors.blueAccent;
   Color right = Colors.green;
-  Color wrong = Colors.red;
 
-  var  btncolor = Colors.blueGrey;
+  Color btnColor1 = Colors.blueAccent;
+  Color btnColor2 = Colors.blueAccent;
+  Color btnColor3 = Colors.blueAccent;
+  Color btnColor4 = Colors.blueAccent;
+
+  Color wrong1 = Colors.red;
+  Color wrong2 = Colors.red;
+  Color wrong3 = Colors.red;
+  Color wrong4 = Colors.red;
+
+
+
 
 
 
@@ -99,39 +108,55 @@ class QuestionState extends State<Question> {
 
                     //button 1
                     new MaterialButton(
-                    //  minWidth: 120.0,
+                      // minWidth: 120.0,
                       height: 40.0,
+                      color: btnColor1,
                       onPressed: (){
                         if(quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
-                          debugPrint("Correct");
-                          finalScore++;
-                        }else{
-                          debugPrint("Wrong");
+                          print("Correct");
+                          setState(() {
+                            btnColor1 = right;
+                          });
+                          finalScore = finalScore +2;
+                        }else {
+                          print("Wrong");
+                          setState(() {
+                            btnColor1 = wrong1;
+
+                          });
+
                         }
                       },
                       child: new Text(quiz.choices[questionNumber][0],
                         style: new TextStyle(
                             fontSize: 20.0,
-                          color: Colors.white,
+                            color: Colors.white
                         ),),
-                      color: Colors.blueGrey,
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                     ),
+
 
                     //button 2
                     new MaterialButton(
                      // minWidth: 120.0,
                       height: 40.0,
-                      color: Colors.blueGrey,
+                      color: btnColor2,
                       onPressed: (){
 
                         if(quiz.choices[questionNumber][1] == quiz.correctAnswers[questionNumber]){
-                          debugPrint("Correct");
-                          finalScore++;
-                        }else{
-                          debugPrint("Wrong");
-                        }
+                          print("Correct");
+                          setState(() {
+                            btnColor2 = right;
 
+                          });
+                          finalScore = finalScore +2;
+                        }else{
+                          print("Wrong");
+                          setState(() {
+                            btnColor2 = wrong2;
+
+                          });
+                        }
                       },
                       child: new Text(quiz.choices[questionNumber][1],
                         style: new TextStyle(
@@ -153,19 +178,27 @@ class QuestionState extends State<Question> {
 
                     //button 3
                     new MaterialButton(
-                      //minWidth: 120.0,
+                      // minWidth: 120.0,
                       height: 40.0,
-                      color:  Colors.blueGrey,
-                      onPressed:() {
+                      color: btnColor3,
+                      onPressed: (){
+
                         if(quiz.choices[questionNumber][2] == quiz.correctAnswers[questionNumber]){
+                          print("Correct");
+                          setState(() {
+                            btnColor3 = right;
 
-                        debugPrint("Correct");
-                        finalScore++;
-                      }else{
-                        debugPrint("Wrong");
-                      }
+                          });
+                          finalScore = finalScore +2;
+                        }else{
+                          print("Wrong");
+                          setState(() {
+                            btnColor3 = wrong3;
+
+                          });
+                        }
+
                       },
-
                       child: new Text(quiz.choices[questionNumber][2],
                         style: new TextStyle(
                             fontSize: 20.0,
@@ -174,27 +207,31 @@ class QuestionState extends State<Question> {
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                     ),
 
+
                     //button 4
 
                     new MaterialButton(
-                     // minWidth: 120.0,
+                      // minWidth: 120.0,
                       height: 40.0,
-                      color: Colors.blueGrey,
+                      color:  btnColor4,
                       onPressed: (){
 
                         if(quiz.choices[questionNumber][3] == quiz.correctAnswers[questionNumber]){
+                          print("Correct");
+                          setState(() {
+                            btnColor4 = right;
 
-                          debugPrint("Correct");
-                          colortoshow = right;
-                          finalScore++;
-
+                          });
+                          finalScore = finalScore +2;
                         }else{
-                          debugPrint("Wrong");
-                          colortoshow = wrong;
-                        }
-                        btncolor = colortoshow;
-                      },
+                          print("Wrong");
+                          setState(() {
+                            btnColor4 = wrong4;
 
+                          });
+                        }
+
+                      },
                       child: new Text(quiz.choices[questionNumber][3],
                         style: new TextStyle(
                             fontSize: 20.0,
@@ -202,6 +239,7 @@ class QuestionState extends State<Question> {
                         ),),
                       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
                     ),
+
 
                   ],
                 ),
@@ -247,6 +285,10 @@ class QuestionState extends State<Question> {
         Navigator.push(context, new MaterialPageRoute(builder: (context)=> new Summary(score: finalScore,)));
 
       }else{
+        btnColor1 = Colors.blue;
+        btnColor2 = Colors.blue;
+        btnColor3 = Colors.blue;
+        btnColor4 = Colors.blue;
         questionNumber++;
       }
     });

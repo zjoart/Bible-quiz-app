@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './quizQuestion.dart';
 
@@ -33,13 +34,13 @@ class AnimalQuizState extends State<BibleQuiz>{
 
         child: new Column(
 
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
 
             new MaterialButton(
                 height: 50.0,
-                color: Colors.green,
+                color: Colors.blueAccent,
                 onPressed: startQuiz,
                 child: new Text("Start Bible Quiz",
                   style: new TextStyle(
