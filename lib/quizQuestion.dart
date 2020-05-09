@@ -118,7 +118,7 @@ class QuestionState extends State<Question> {
                             btnColor1 = right;
                           });
                           finalScore = finalScore +2;
-                        }else {
+                        }else{
                           print("Wrong");
                           setState(() {
                             btnColor1 = wrong1;
@@ -269,14 +269,6 @@ class QuestionState extends State<Question> {
     );
   }
 
-
-  void resetQuiz(){
-    setState(() {
-      Navigator.pop(context);
-      finalScore = 0;
-      questionNumber = 0;
-    });
-  }
 
 
   void updateQuestion(){
